@@ -1,15 +1,18 @@
 package com.example.escuela.entities;
 
+import com.example.escuela.entities.Grupo;
+import com.example.escuela.enums.DiaSemana;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
-@Builder
-@Getter @Setter
+@NoArgsConstructor
 @Table(name = "HORARIOS")
-public class Horarios {
+@Builder
+public class Horario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +21,11 @@ public class Horarios {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_GRUPO", nullable = false)
-    private Grupos grupo;
+    private Grupo grupo;
 
-    @Column(name = "DIA", length = 15, nullable = false)
-    private String dia;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "DIA", nullable = false)
+    private DiaSemana diaSemana;
 
     @Column(name = "HORA_INICIO", length = 5, nullable = false)
     private String horaInicio;

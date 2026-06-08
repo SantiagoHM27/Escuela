@@ -7,36 +7,42 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @Builder
 @Getter
 @Setter
 @Table(name = "MAESTROS")
-public class Maestros {
+public class Maestro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_MAESTRO")
     private Long id;
 
-    @Column(name = "NOMBRE", length = 50, nullable = false)
+    @Column(name = "NOMBRE", nullable = false, length = 50)
     private String nombre;
 
-    @Column(name = "APELLIDO_PATERNO", length = 50, nullable = false)
+    @Column(name = "APELLIDO_PATERNO", nullable = false, length = 50)
     private String apellidoPaterno;
 
-    @Column(name = "APELLIDO_MATERNO", length = 50, nullable = false)
+    @Column(name = "APELLIDO_MATERNO", nullable = false, length = 50)
     private String apellidoMaterno;
 
-    @Column(name = "EMAIL", length = 100, nullable = false, unique = true)
+    @Column(name = "EMAIL", nullable = false, length = 100, unique = true)
     private String email;
 
-    @Pattern(regexp = "^[0-9]{10}$", message = "El teléfono debe tener exactamente 10 dígitos numéricos")
-    @Column(name = "TELEFONO", length = 10, nullable = false, unique = true)
+    @Column(name = "TELEFONO", unique = true, nullable = false, length = 10)
     private String telefono;
 
-    public Maestros() {
+    @Builder.Default
+    @OneToMany(mappedBy = "maestro")
+    private List<Grupo> grupos = new ArrayList<>();
+
+    public Maestro() {
 
     }
 }
