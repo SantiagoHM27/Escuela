@@ -1,0 +1,31 @@
+package com.example.escuela.entities;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Getter @Setter
+@Table(name = "HORARIOS")
+public class Horarios {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_HORARIO")
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_GRUPO", nullable = false)
+    private Grupos grupo;
+
+    @Column(name = "DIA", length = 15, nullable = false)
+    private String dia;
+
+    @Column(name = "HORA_INICIO", length = 5, nullable = false)
+    private String horaInicio;
+
+    @Column(name = "HORA_FIN", length = 5, nullable = false)
+    private String horaFin;
+}
