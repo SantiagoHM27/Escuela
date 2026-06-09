@@ -31,7 +31,7 @@ public class Alumno {
     @Column(name = "EMAIL", nullable = false, length = 100, unique = true)
     private String email;
 
-    @Column(name = "MATRÍCULA", nullable = false, length = 10, unique = true)
+    @Column(name = "MATRICULA", nullable = false, length = 10, unique = true)
     private String matricula;
 
     @Builder.Default
@@ -41,4 +41,6 @@ public class Alumno {
     @Builder.Default
     @OneToMany(mappedBy = "alumno")
     private List<Inscripcion> inscripciones = new ArrayList<>();
+
+
 }
