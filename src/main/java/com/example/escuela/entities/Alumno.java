@@ -1,5 +1,8 @@
 package com.example.escuela.entities;
 
+import com.example.escuela.dto.alumnos.AlumnoRequest;
+import com.example.escuela.dto.alumnos.AlumnoResponse;
+import com.example.escuela.services.CrudService;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,7 +16,7 @@ import java.util.List;
 @Builder
 @Getter @Setter
 @Table(name = "ALUMNOS")
-public class Alumno {
+public class Alumno implements CrudService<AlumnoRequest, AlumnoResponse> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_ALUMNO")
@@ -41,6 +44,14 @@ public class Alumno {
     @Builder.Default
     @OneToMany(mappedBy = "alumno")
     private List<Inscripcion> inscripciones = new ArrayList<>();
+
+    public void actualizar(String nombre, String apellidoPaterno,
+                           String apellidoMaterno, String email) {
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.email = email;
+    }
 
 
 }
