@@ -24,7 +24,6 @@ public class MaestroMapper implements CommonMapper<MaestroRequest, MaestroRespon
                 .telefono(request.telefono().trim())
                 .build();
     }
-
     @Override
     public MaestroResponse entidadAResponse(Maestro entidad) {
         if (entidad == null) return null;

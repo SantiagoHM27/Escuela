@@ -44,7 +44,6 @@ public class Maestro {
     @OneToMany(mappedBy = "maestro")
     private List<Grupo> grupos = new ArrayList<>();
 
-    // ◄--- EL CONSTRUCTOR MANUAL VACÍO QUE ESTABA AQUÍ SE ELIMINÓ
 
     public void actualizar(
             String nombre, String apellidoPaterno,
