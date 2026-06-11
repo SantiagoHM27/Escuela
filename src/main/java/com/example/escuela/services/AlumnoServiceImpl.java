@@ -7,6 +7,7 @@ import com.example.escuela.exceptions.EntidadRelacionadaException;
 import com.example.escuela.mappers.AlumnoMapper;
 import com.example.escuela.repositories.AlumnoRepository;
 import com.example.escuela.repositories.InscripcionRepository;
+import com.example.escuela.utils.ServiceUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -104,5 +105,9 @@ public class AlumnoServiceImpl  implements AlumnoService{
 
         alumnoRepository.delete(alumno);
         log.info("Alumno con id {} eliminado", id);
+    }
+
+    private Alumno obtenerAlumno(Long id) {
+        return ServiceUtils.obtenerEntidadOException(alumnoRepository, id, Alumno.class);
     }
 }

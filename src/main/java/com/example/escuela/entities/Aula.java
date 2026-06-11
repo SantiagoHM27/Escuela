@@ -28,4 +28,10 @@ public class Aula {
     @Builder.Default
     @OneToMany(mappedBy = "aula")
     private List<Grupo> grupos = new ArrayList<>();
+
+    public void actualizar(String nombre, Integer descripcion) {
+        this.nombre = nombre;
+        this.capacidad = capacidad;
+
+    }
 }
