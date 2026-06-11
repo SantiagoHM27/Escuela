@@ -54,4 +54,28 @@ public class Alumno implements CrudService<AlumnoRequest, AlumnoResponse> {
     }
 
 
+    @Override
+    public List<AlumnoResponse> listar() {
+        return List.of();
+    }
+
+    @Override
+    public AlumnoResponse obtenerPorId(Long id) {
+        return null;
+    }
+
+    @Override
+    public AlumnoResponse registrar(AlumnoRequest request) {
+        return null;
+    }
+
+    @Override
+    public AlumnoResponse actualizar(AlumnoRequest request, Long id) {
+        return null;
+    }
+
+    @Override
+    public void eliminar(Long id) {
+
+    }
 }

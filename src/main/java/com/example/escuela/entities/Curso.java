@@ -34,4 +34,12 @@ public class Curso {
     @OneToMany(mappedBy = "curso")
     private List<Grupo> grupos = new ArrayList<>();
 
+    public void actualizar(String nombre, String descripcion,
+                           Integer creditos ) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.creditos = creditos;
+
+    }
+
 }
