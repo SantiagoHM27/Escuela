@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 public record AulaRequest(
 
         @NotBlank(message = "El nombre es requerido")
-        @Size(min = 15, max = 30, message = "El nombre debe tener entre 5 y 100 caracteres")
+        @Size(min = 5, max = 50, message = "El nombre debe tener entre 5 y 50 caracteres")
         String nombre,
 
         @NotNull( message = "La capacidad es requerida")

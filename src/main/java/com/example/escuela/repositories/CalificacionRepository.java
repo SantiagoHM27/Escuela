@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface CalificacionRepository extends JpaRepository<Calificacion, Long> {
 
     boolean existsByInscripcionId(Long inscripcionId);
+
+
 }

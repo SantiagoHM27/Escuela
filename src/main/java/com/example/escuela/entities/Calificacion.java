@@ -30,4 +30,9 @@ public class Calificacion {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_INSCRIPCION", nullable = false, unique = true)
     private Inscripcion inscripcion;
+
+    public void actualizar(BigDecimal calificacion) {
+        this.calificacion = calificacion;
+        this.fechaRegistro = LocalDate.now();
+    }
 }
