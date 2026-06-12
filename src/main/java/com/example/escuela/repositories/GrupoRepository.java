@@ -19,4 +19,6 @@ public interface GrupoRepository  extends JpaRepository<Grupo, Long> {
 
     boolean existsByCursoIdAndMaestroIdAndAulaIdAndPeriodoAndIdNot(
             Long cursoId, Long maestroId, Long aulaId, String periodo, Long id);
+
+
 }

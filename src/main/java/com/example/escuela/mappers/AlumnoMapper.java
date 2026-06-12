@@ -40,11 +40,13 @@ public class AlumnoMapper implements CommonMapper<AlumnoRequest, AlumnoResponse,
                 .matricula(matricula)
                 .build();
     }
+
     public String generarEmail(String nombre, String apellidoPaterno) {
         String n = StringCustomUtils.quitarAcentos(nombre.split(" ")[0]).toLowerCase();
         String ap = StringCustomUtils.quitarAcentos(apellidoPaterno).toLowerCase();
         return n + "." + ap + "@alumnos.com";
     }
+
     private String generarMatricula() {
         int anio = LocalDate.now().getYear();
         long total = alumnoRepository.count() + 1;
@@ -87,4 +89,8 @@ public class AlumnoMapper implements CommonMapper<AlumnoRequest, AlumnoResponse,
                 calificaciones,
                 promedio
         );
+    }
+
 }
+
+
